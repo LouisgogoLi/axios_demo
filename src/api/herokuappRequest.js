@@ -1,12 +1,12 @@
 import { oBaseUrl } from "./config.js";
 import axios from "axios";
 
-const imageRequest = axios.create({
+const herokuappRequest = axios.create({
   baseURL: oBaseUrl.herokuappBaseUrl.DEV,
 });
 
 // 攔截 API request 的請求
-imageRequest.interceptors.request.use(
+herokuappRequest.interceptors.request.use(
   (request) => {
     // API送出前可以做最後的處理
     return request;
@@ -18,7 +18,7 @@ imageRequest.interceptors.request.use(
 );
 
 // 攔截 API response 的回傳
-imageRequest.interceptors.response.use(
+herokuappRequest.interceptors.response.use(
   (response) => {
     // 這邊可以對回來的資料先進行驗證處理，再來決定要不要把資料給吐出去
     return response;
@@ -29,4 +29,4 @@ imageRequest.interceptors.response.use(
   }
 );
 
-export const getImageList = () => imageRequest.get("/photo/list");
+export const getHerokuappImageList = () => herokuappRequest.get("/photo/list");

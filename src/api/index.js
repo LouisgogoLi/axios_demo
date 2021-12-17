@@ -1,3 +1,3 @@
-import { getImageList } from "./imageRequest.js";
+import { getHerokuappImageList } from "./herokuappRequest.js";
 
-export const apiGetImageList = getImageList;
+export const apiGetHerokuappImageList = getHerokuappImageList;

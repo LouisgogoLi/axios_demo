@@ -1,5 +1,5 @@
 <script>
-import { apiGetImageList } from "@/api";
+import { apiGetHerokuappImageList } from "@/api";
 import { ref, reactive, onMounted } from "vue";
 export default {
   setup() {
@@ -9,7 +9,7 @@ export default {
 
     const getData = async () => {
       try {
-        const imageListItem = await apiGetImageList();
+        const imageListItem = await apiGetHerokuappImageList();
         bIsLoad.value = true;
         oFetchData.data = imageListItem.data;
       } catch (err) {
