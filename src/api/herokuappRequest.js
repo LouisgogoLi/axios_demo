@@ -30,3 +30,5 @@ herokuappRequest.interceptors.response.use(
 );
 
 export const getHerokuappImageList = () => herokuappRequest.get("/photo/list");
+export const postHerokuappRegistered = (data) =>
+  herokuappRequest.post("/auth/registered", data);

@@ -1,17 +1,16 @@
 <template>
-  <img alt="Vue logo" src="@/assets/images/logo.png" />
-  <MousePosition />
-  <StateTodo />
-  <StateTodo />
-  <FetchData />
+  <div>
+    <div id="nav">
+      <router-link :to="{ name: 'Home' }">Home</router-link> |
+      <router-link :to="{ name: 'AxiosGet' }">AxiosGet</router-link> |
+      <router-link :to="{ name: 'AxiosPost' }">AxiosPost</router-link>
+    </div>
+    <router-view />
+  </div>
 </template>
 
 <script>
-import MousePosition from "@/components/MousePosition.vue";
-import StateTodo from "@/components/StateTodo.vue";
-import FetchData from "@/components/FetchData.vue";
 export default {
-  components: { MousePosition, StateTodo, FetchData },
   setup() {
     return {};
   },
@@ -25,9 +24,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
-.box {
-  margin-bottom: 20px;
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
