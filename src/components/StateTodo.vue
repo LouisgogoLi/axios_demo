@@ -1,18 +1,20 @@
-<script>
-import { fnStateTodo } from "@/common/methodCommon";
-export default {
-  setup() {
-    const { idx, addState } = fnStateTodo();
-    return { idx, addState };
-  },
-};
-</script>
 <template>
   <div class="block">
     <h1>number: {{ idx }}</h1>
     <button @click="addState">add</button>
   </div>
 </template>
+
+<script>
+export default {
+  name: "StateTodo",
+};
+</script>
+
+<script setup>
+import { fnStateTodo } from "@/common/methodCommon";
+const { idx, addState } = fnStateTodo();
+</script>
 
 <style lang="scss" scoped>
 .block {

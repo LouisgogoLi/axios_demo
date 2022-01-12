@@ -1,13 +1,3 @@
-<script>
-import { fnMousePosition } from "@/common/methodCommon";
-export default {
-  setup() {
-    const { x, y } = fnMousePosition();
-    return { x, y };
-  },
-};
-</script>
-
 <template>
   <div class="box">
     <h1>Mouse Position</h1>
@@ -15,4 +5,15 @@ export default {
   </div>
 </template>
 
-<style lang="scss"></style>
+<script>
+export default {
+  name: "MousePosition",
+};
+</script>
+
+<script setup>
+import { fnMousePosition } from "@/common/methodCommon";
+const { x, y } = fnMousePosition();
+</script>
+
+<style lang="scss" scoped></style>

@@ -1,17 +1,20 @@
 <template>
-  <mouse-position />
-  <state-todo />
-  <state-todo />
-  <fetch-data />
+  <MousePosition />
+  <StateTodo />
+  <StateTodo />
+  <FetchData />
 </template>
 
 <script>
+export default {
+  name: "AxiosGet",
+};
+</script>
+
+<script setup>
 import MousePosition from "@/components/MousePosition.vue";
 import StateTodo from "@/components/StateTodo.vue";
 import FetchData from "@/components/FetchData.vue";
-export default {
-  components: { MousePosition, StateTodo, FetchData },
-};
 </script>
 
 <style scoped>

@@ -1,31 +1,3 @@
-<script>
-import { apiGetHerokuappImageList } from "@/api";
-import { ref, reactive, onMounted } from "vue";
-export default {
-  setup() {
-    const oFetchData = reactive({ data: [] });
-    const bIsLoad = ref(false);
-    const sErrorLog = ref("");
-
-    const getData = async () => {
-      try {
-        const imageListItem = await apiGetHerokuappImageList();
-        bIsLoad.value = true;
-        oFetchData.data = imageListItem.data;
-      } catch (err) {
-        bIsLoad.value = true;
-        sErrorLog.value = err.message;
-      }
-    };
-
-    onMounted(() => {
-      getData();
-    });
-    return { oFetchData, bIsLoad, sErrorLog };
-  },
-};
-</script>
-
 <template>
   <div>
     <img
@@ -45,6 +17,36 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "FetchData",
+};
+</script>
+
+<script setup>
+import { apiGetHerokuappImageList } from "@/api";
+import { ref, reactive, onMounted } from "vue";
+
+const oFetchData = reactive({ data: [] });
+const bIsLoad = ref(false);
+const sErrorLog = ref("");
+
+const getData = async () => {
+  try {
+    const imageListItem = await apiGetHerokuappImageList();
+    bIsLoad.value = true;
+    oFetchData.data = imageListItem.data;
+  } catch (err) {
+    bIsLoad.value = true;
+    sErrorLog.value = err.message;
+  }
+};
+
+onMounted(() => {
+  getData();
+});
+</script>
 
 <style lang="scss" scoped>
 .loading {
