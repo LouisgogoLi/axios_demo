@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div id="nav">
+    <nav>
       <router-link :to="{ name: 'Home' }">Home</router-link> |
       <router-link :to="{ name: 'AxiosGet' }">AxiosGet</router-link> |
       <router-link :to="{ name: 'AxiosPost' }">AxiosPost</router-link>
-    </div>
-    <router-view />
+    </nav>
   </div>
+  <router-view />
 </template>
 
 <script>
@@ -26,7 +26,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
+nav {
   padding: 30px;
 
   a {
